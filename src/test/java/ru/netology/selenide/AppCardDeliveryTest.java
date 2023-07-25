@@ -22,12 +22,12 @@ public class AppCardDeliveryTest {
         $("[data-test-id='city'] input").setValue("Казань");
         // $$(".menu-item__control").findBy(text("Казань")).click();
         String currentDate = generateDate(3, "dd.MM.yyyy");
-        $("[data-test-id='date']input").sendKeys(Keys.chord(Keys.SHIFT, Keys.HOME), Keys.DELETE);
-        $("[data-test-id='date']input").sendKeys(currentDate);
-        $("[data-test-id='name']input").setValue("Сильвестер Сталлонович");
-        $("[data-test-id='phone']input").setValue("+78005553535");
+        $("[data-test-id='date'] input").sendKeys(Keys.chord(Keys.SHIFT, Keys.HOME), Keys.DELETE);
+        $("[data-test-id='date'] input").sendKeys(currentDate);
+        $("[data-test-id='name'] input").setValue("Сильвестер Сталлонович");
+        $("[data-test-id='phone'] input").setValue("+78005553535");
         $("[data-test-id='agreement']").click();
-        $("button.button").click();
+        $("button.button") .click();
         $(".notification__content")
                 .shouldBe(Condition.visible, Duration.ofSeconds(15))
                 .shouldHave(Condition.exactText("Встреча успешно забронирована на " + currentDate));
